@@ -1,6 +1,6 @@
 /**
- * Remove `data-test-id` attribute from jsx elements
- * The `data-test-id` is normally added for testing as a helper attribute to
+ * Remove `data-cy` attribute from jsx elements
+ * The `data-cy` is normally added for testing as a helper attribute to
  * quickly grab an element by id and simualte events or do other stuff
  * It's not required in the production builds
  * @param {*} babel
@@ -13,8 +13,7 @@ module.exports = function(babel) {
     visitor: {
       JSXAttribute(path) {
         var node = path.node
-        console.log(node)
-        if (node.name.name === "data-test-id") {
+        if (node.name.name === "data-cy") {
           path.remove()
         }
       }
